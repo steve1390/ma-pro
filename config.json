@@ -1,0 +1,59 @@
+{
+  "universe": {
+    "markets": ["KOSPI", "KOSDAQ"],
+    "lookback_calendar_days": 1150,
+    "min_trading_days": 460,
+    "min_mcap_eok": 500,
+    "min_trading_val_eok": 20,
+    "min_avg20_volume": 20000,
+    "max_workers": 8,
+    "use_cache": true,
+    "include_delisted_in_backtest": false
+  },
+  "step1_downtrend": {
+    "lookback_days": 250,
+    "min_inverse_days": 180,
+    "min_drawdown_from_1y_high_pct": 20.0
+  },
+  "step2_box": {
+    "box_window_days": 40,
+    "preferred_max_box_width_pct": 15.0,
+    "allowed_max_box_width_pct": 25.0,
+    "min_support_touches": 2
+  },
+  "step3_convergence": {
+    "max_gap_20_200_pct": 3.0,
+    "max_gap_50_200_pct": 3.0,
+    "max_gap_20_50_pct": 2.0,
+    "slope_lookback_short": 5,
+    "slope_lookback_long": 20,
+    "gap_reduction_lookback": 20,
+    "ma200_flat_threshold_pct": -0.5
+  },
+  "step4_golden_cross": {
+    "recent_gc_window_days": 15
+  },
+  "step5_volume": {
+    "vol_surge_ratio": 1.5,
+    "strong_vol_surge_ratio": 2.0,
+    "temporal_link_days": 3
+  },
+  "step8_scoring": {
+    "grade_top": 85.0,
+    "grade_candidate": 75.0,
+    "grade_watch": 65.0,
+    "preferred_rr_ratio": 1.5,
+    "max_ma40_disparity_pct": 18.0
+  },
+  "backtest": {
+    "holding_days": [10, 20, 40, 60],
+    "commission_rate": 0.00015,
+    "sell_tax_rate": 0.0018,
+    "slippage_rate": 0.0015,
+    "start_offset_days": 460
+  },
+  "paths": {
+    "cache_dir": "cache",
+    "output_dir": "output"
+  }
+}
